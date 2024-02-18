@@ -1,11 +1,11 @@
-name: Blanq test ubuntu-latest
+name: Blanq test ubuntu-latest clang++ expected
 
 on:
   push:
     paths:
     - 'include/**'
     - 'src/**'
-    - '.github/workflows/test_ubuntul.yml'
+    - '.github/workflows/test-ubuntul-expected-clang.yml'
 
 jobs:
   build:
@@ -13,12 +13,9 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         BUILD_TYPE: [Debug, Release]
-        target: [test-constrained-fold-explicit, test-constrained-fold-implicit, test-instantiate-using-lambda-explicit-default, test-instantiate-using-lambda-implicit-default, test-instantiate-using-lambda-explicit, test-instantiate-using-lambda-implicit]
-        compiler: [g++-13, clang++-15]
+        target: [test-instantiate-using-lambda-explicit-default, test-instantiate-using-lambda-implicit-default, test-instantiate-using-lambda-explicit, test-instantiate-using-lambda-implicit]
+        compiler: [clang++-15]
         include:
-          - os: ubuntu-latest
-            compiler: g++-13
-            install: sudo apt update && sudo apt install g++-13
           - os: ubuntu-latest
             compiler: clang++-15
             install: sudo apt update && sudo apt install clang-15
@@ -44,9 +41,9 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: if cmake --build . --config ${{matrix.BUILD_TYPE}} -t ${{matrix.target}} -j; then exit 1; fi
+      run: cmake --build . --config ${{matrix.BUILD_TYPE}} -t ${{matrix.target}} -j
 
     - name: Test
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: if ./${{matrix.target}}; then exit 1; fi
+      run: ./${{matrix.target}}; then exit 1
