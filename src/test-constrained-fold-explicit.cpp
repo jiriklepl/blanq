@@ -2,7 +2,6 @@
 
 template void Struct<void>::method<>(); // trivial
 template void Struct<void>::method<0>(); // minimal non-trivial
-template void Struct<void>::method<0, 0.1, []{}>(); // non-trivial
+template void Struct<void>::method<0, 0.1, 3/2>(); // non-trivial
 
-int main() {
-}
+int main() {}

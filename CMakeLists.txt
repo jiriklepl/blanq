@@ -15,3 +15,8 @@ include_directories(include)
 
 add_executable(test-constrained-fold-explicit src/test-constrained-fold-explicit.cpp)
 add_executable(test-constrained-fold-implicit src/test-constrained-fold-implicit.cpp)
+
+add_executable(test-instantiate-using-lambda-explicit src/test-instantiate-using-lambda-explicit.cpp)
+add_executable(test-instantiate-using-lambda-explicit-default src/test-instantiate-using-lambda-explicit-default.cpp)
+add_executable(test-instantiate-using-lambda-implicit src/test-instantiate-using-lambda-implicit.cpp)
+add_executable(test-instantiate-using-lambda-implicit-default src/test-instantiate-using-lambda-implicit-default.cpp)

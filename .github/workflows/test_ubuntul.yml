@@ -13,7 +13,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         BUILD_TYPE: [Debug, Release]
-        target: [test-constrained-fold-explicit, test-constrained-fold-implicit]
+        target: [test-constrained-fold-explicit, test-constrained-fold-implicit, test-instantiate-using-lambda-explicit-default, test-instantiate-using-lambda-implicit-default, test-instantiate-using-lambda-explicit, test-instantiate-using-lambda-implicit]
         compiler: [g++-13, clang++-15]
         include:
           - os: ubuntu-latest
