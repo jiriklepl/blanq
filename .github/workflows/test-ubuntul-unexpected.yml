@@ -44,9 +44,9 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: cmake --build . --config ${{matrix.BUILD_TYPE}} -t ${{matrix.target}} -j
+      run: if cmake --build . --config ${{matrix.BUILD_TYPE}} -t ${{matrix.target}} -j; then exit 1; fi
 
     - name: Test
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: ./${{matrix.target}}
+      run: if ./${{matrix.target}}; then exit 1; fi
