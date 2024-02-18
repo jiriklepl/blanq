@@ -46,4 +46,4 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: ./${{matrix.target}}; then exit 1
+      run: ./${{matrix.target}}
