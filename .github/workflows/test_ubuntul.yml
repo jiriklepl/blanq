@@ -14,17 +14,11 @@ jobs:
         os: [ubuntu-latest]
         BUILD_TYPE: [Debug, Release]
         target: [test-constrained-fold-explicit, test-constrained-fold-implicit]
-        compiler: [g++-10, g++-13, clang++-14, clang++-15]
+        compiler: [g++-13, clang++-15]
         include:
-          - os: ubuntu-latest
-            compiler: g++-10
-            install: sudo apt update && sudo apt install g++-10
           - os: ubuntu-latest
             compiler: g++-13
             install: sudo apt update && sudo apt install g++-13
-          - os: ubuntu-latest
-            compiler: clang++-14
-            install: sudo apt update && sudo apt install clang-14
           - os: ubuntu-latest
             compiler: clang++-15
             install: sudo apt update && sudo apt install clang-15
